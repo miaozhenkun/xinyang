@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>宣传教育</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="myList nopadding" no-lines>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="nopadding" col-6 *ngFor="let item of items, let i = index" tappable (click)="goPlay(item)">
+          <ion-item class="nopadding" text-center >
+            <img src="{{item.image}}">
+            <h2 class="f14">{{item.title}}</h2>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-list>
+
+</ion-content>

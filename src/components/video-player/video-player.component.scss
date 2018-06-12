@@ -1,0 +1,176 @@
+page-video-player {
+    .range-md {
+        padding: 0 8px;
+    }
+    .range-md .range-slider {
+        height: 24px;
+    }
+    .range-md .range-bar {
+        background: rgba(255, 255, 255, 0.4);
+    }
+    .range-md .range-bar-active {
+        bottom: 0;
+        width: auto;
+        background: color($colors, secondary);
+    }
+    .range-md .range-knob {
+        background: color($colors, secondary);
+    }
+    .video-player {
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        line-height: 1;
+    }
+    .video-player-wrap {
+        position: relative;
+        background: #000;
+        font-size: 0;
+        width: 100%;
+        height: 100%;
+        .video-current {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .video-player-controller {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 73px;
+        padding: 0;
+        transition: all .3s ease;
+        user-select: none;
+    }
+    .video-player-icons-left {
+        height: 49px;
+        position: absolute;
+        bottom: 0;
+        button {
+            width: 49px;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+            vertical-align: middle;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            color: color($colors, secondary);
+            font-size: 23px;
+            text-align: center;
+        }
+        button.activated {
+            background: rgba(66, 189, 86, 0.2);
+        }
+        .video-time {
+            position: absolute;
+            top: 0;
+            left: 49px;
+            width: 100px;
+            line-height: 49px;
+            color: #eee;
+            text-shadow: 0 0 2px rgba(0, 0, 0, .5);
+            vertical-align: middle;
+            font-size: 13px;
+            cursor: default;
+        }
+    }
+    .video-player-icons-right {
+        height: 49px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        button {
+            width: 49px;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+            vertical-align: middle;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            color: color($colors, secondary);
+            font-size: 23px;
+            text-align: center;
+        }
+        button.activated {
+            background: rgba(66, 189, 86, 0.2);
+        }
+    }
+    .spinner-circles-box {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        left: 50%;
+        margin-top: -25px;
+        margin-left: -25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .cp-spinner {
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .cp-round:before {
+            border-radius: 50%;
+            content: " ";
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            box-sizing: border-box;
+            border-top: solid 3px rgba(255, 255, 255, 0.5);
+            border-right: solid 3px rgba(255, 255, 255, 0.5);
+            border-bottom: solid 3px rgba(255, 255, 255, 0.5);
+            border-left: solid 3px rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .cp-round:after {
+            border-radius: 50%;
+            content: " ";
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            box-sizing: border-box;
+            border-top: solid 3px color($colors, secondary);;
+            border-right: solid 3px transparent;
+            border-bottom: solid 3px transparent;
+            border-left: solid 3px transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: cp-round-animate 1s ease-in-out infinite;
+        }
+
+        @keyframes cp-round-animate {
+            0% {
+                transform: rotate(0)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+    }
+
+    .player-fulled {
+        position: fixed;
+        z-index: 100000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,38 @@
+// 主题自定义文件
+
+// 字体文件路径
+$font-path: "../assets/fonts";
+
+// app方向
+$app-direction: ltr;
+
+// ionic全局样式
+@import "ionic.globals";
+
+// 公共变量。可覆盖值参考：http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+// 颜色变量
+$colors: (
+  primary:    #1f83df,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  warning:    #8a6d3b,
+  info:       #31708f,
+  success:    #3c763d,
+  muted:      #777,
+  bright:     #9585bf,
+  white:    #000000,
+);
+
+// app主题
+@import "ionic.theme.default";
+
+// app图标-Ionicons。参考：http://ionicframework.com/docs/ionicons/
+@import "ionic.ionicons";
+
+// 字体文件
+@import "roboto";
+@import "noto-sans";

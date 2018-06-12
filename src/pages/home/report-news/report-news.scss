@@ -1,0 +1,138 @@
+page-report-news {
+    .borderbottom {
+      border-bottom: 1px solid blue;
+    }
+    .padding-none {
+        padding: 0px !important;
+    }
+    .myList {
+        margin: 0px;
+    }
+    .item-ios h2 {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-bottom: 8px;
+        overflow: hidden;
+        font-size: 16px;
+    }
+
+
+  #laws .searchbutton {
+    position: relative;
+    top: 10px;
+    color: blue;
+    font-size: 16px;
+  }
+  #laws .borderbottom {
+    border-bottom-color: blue;
+    border-bottom: 2px solid blue;
+  }
+  #laws .padding-none {
+    padding: 0px !important;
+  }
+  #laws {
+    background-image: none;
+    background-color: #fff;
+  }
+  #laws .has-header {
+    top: 0;
+  }
+  #laws div,
+  ul,
+  li,
+  h1,
+  h2,
+  h3,
+  img,
+  a {
+    font-family: '微软雅黑';
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+    color: #666;
+    font-weight: 300;
+  }
+  #laws a,
+  span {
+    display: block;
+    text-decoration: none;
+  }
+  #laws body {
+    overflow: hidden;
+  }
+  #laws #nav {
+    position: absolute;
+    top: 120px;
+    bottom: 0;
+    width: 120px;
+    overflow: hidden;
+  }
+  #laws #nav ul {
+    display: block;
+    width: 120px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  #laws #nav ul li {
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    line-height: 50px;
+    width: 120px;
+    height: 49px;
+    font-size: 12px;
+  }
+  #laws #nav .nav-blur {
+    color: #252525;
+    border-right: 1px solid #e0e0e0;
+    background-color: #f3f4f6;
+  }
+  #laws #nav .nav-current {
+    color: red;
+    border-right: 1px solid #fff;
+    background-color: #fff;
+  }
+  #laws #pro {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border: 2px solid #cccccc;
+  }
+  #laws .pro-scroll {
+    width: 200%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  #laws .pro-warp {
+    width: 50%;
+    background-color: #fff;
+  }
+  #laws #pro .banner {
+    margin: 10px 12px;
+    height: 94px;
+  }
+  #laws #pro img {
+    width: 100%;
+  }
+  #laws #pro .content {
+    overflow: hidden;
+  }
+  #laws #pro .content-title {
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    padding-left: 10px;
+  }
+  #laws #pro .content-body {
+    margin: 0px 12px;
+    overflow: hidden;
+  }
+
+}

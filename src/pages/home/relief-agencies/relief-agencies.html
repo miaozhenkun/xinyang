@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>救援机构</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+  <ion-grid class="padding-none">
+    <ion-row>
+      <ion-col  text-center class=" padding-none" [ngClass]="{'borderbottom':cindex==1}" tappable (click)="sec(1)">
+        <p>外资国际救援</p>
+      </ion-col>
+      <ion-col *ngIf="permisson!=0" text-center class="padding-none " [ngClass]="{'borderbottom':cindex==2}" tappable (click)="sec(2)">
+        <p>NGO国际组织</p>
+      </ion-col>
+      <ion-col *ngIf="permisson!=0"  text-center class="padding-none " [ngClass]="{'borderbottom':cindex==3}" tappable (click)="sec(3)">
+        <p>内资国际救援</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list class="myList" inset>
+    <ion-item *ngFor="let item of items, let i = index" class="item" tappable (click)="goDegtail(item)">
+      <ion-thumbnail item-start *ngIf="item.imgUrl">
+        <img src="{{item.imgUrl}}">
+      </ion-thumbnail>
+      <div>
+        <h2 ion-text color="dark">
+          {{item.inName}}
+        </h2>
+      </div>
+    </ion-item>
+  </ion-list>
+  <no-more [hasMore]="hasmore"></no-more>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">
+    <my-infinite-scroll-content></my-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

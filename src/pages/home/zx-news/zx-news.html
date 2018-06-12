@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+    <!--<my-refresher-content></my-refresher-content>-->
+  <!--</ion-refresher>-->
+
+  <ion-list inset>
+    <ion-item *ngFor="let i of items, let j = index" tappable (click)="goDegtail(i)">
+      <h2>{{i.title}} </h2>
+      <p>{{i.date}}</p>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

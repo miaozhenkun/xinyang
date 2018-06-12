@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div padding>
+    <div class="content_wradivdiver" margin-bottom>
+      <h1>{{ item?.title}}</h1>
+      <p class="infoSet">
+        <span class="afrSdivlit">（通讯员 AD）</span>
+        <span margin-left>时间:2018-05-25 09:56:00</span>
+      </p>
+      <p>{{item?.content}}</p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div *ngIf="title=='资讯'" padding>
+    <div class="content_wradivdiver" margin-bottom>
+        <h1>{{ item?.title}}</h1>
+          <p class="infoSet">
+              <span class="afrSdivlit">{{item?.source}}</span>
+              <span margin-left>{{ item?.createtime| date:'yyyy-MM-dd'}}</span>
+          </p>
+      <p  *ngFor="let j of items, let k = index">{{j}}
+        <img src="{{item?.cover[k]}}">
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="title=='机构详情'">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 text-center>
+          <img style="width: 180px;" src="{{item?.cover}}">
+        </ion-col>
+        <ion-col col-6 class="chcadivname">
+          <b margin-top>{{item?.name}}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div margin>
+      <!--<a *ngIf="item?.website" href="{{item?.website}}">企业网站：{{item?.website}}</a>-->
+      <!--<div  *ngIf="item?.address" margin-top>地址：{{item?.address}}</div>-->
+      <!--<div  *ngIf="item?.tel">电话：{{item?.tel}}</div>-->
+      <!--<div  *ngIf="item?.fax">传真：{{item?.fax}}</div>-->
+      <div  [innerHTML]="item?.info"></div>
+    </div>
+  </div>
+
+  <div *ngIf="title=='安全提示'">
+    <div class="content_wrapper">
+        <h1>{{ item?.title}}</h1>
+              <p class="infoSet">
+                <span class="afrSdivlit">{{item?.country}} </span>
+                <span margin-left>{{ item?.releaseTime| date:'yyyy-MM-dd'}}</span>
+              </p>
+      <div  [innerHTML]="item?.content"></div>
+    </div>
+  </div>
+
+  <div *ngIf="title=='国家详情'" style="background-color: beige; ">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <img margin-left style="width: 180px;height: 100px;" src="{{item?.flag}}">
+        </ion-col>
+        <ion-col col-6 class="chcadivname">
+          <b margin-left class="f18" margin-top>{{item?.name}}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-searchbar class="mysearch" type="text" [(ngModel)]="searchTxt" [animated]="true" (focus)="onFocus()"
+                   (ionInput)="onInput($event)"
+                   placeholder="输入关键字">
+    </ion-searchbar>
+    <div #box class="markdown-body" id="box">
+    <div margin>
+      <div margin-left class="countryinfo">国家名称：{{item?.name}}</div>
+      <div margin-left class="countryinfo">国家全称：{{item?.nameAll}}</div>
+      <div margin-left class="countryinfo">国家英文全称：{{item?.nameEn}}</div>
+      <div margin-left class="countryinfo">所属大洲：{{item?.continent}}</div>
+      <div margin-left class="countryinfo">汇率更新时间：{{item?.exchangeRateUpdateTime}}</div>
+      <div margin-left class="countryinfo">汇率：{{item?.exchangeRate}}</div>
+      <div margin-left class="countryinfo">货币名称：{{item?.coinName}}</div>
+      <div margin-left class="countryinfo" *ngIf="time">当地时间：{{time| date:'yyyy-MM-dd HH:mm:ss'}}</div>
+      <div margin-left class="countryinfo">1{{item?.coinName}}={{item?.exchangeRate}}人民币</div>
+      <div margin-left class="countryinfo">1人民币={{(1/item?.exchangeRate).toFixed(4)}}{{item?.coinName}}</div>
+    </div>
+    <div *ngFor="let item of items" margin class="content_wradivdiver">
+      <b margin-left class="homecorlor f16">{{item?.title}}</b>
+      <div [innerHTML]="item?.content"></div>
+    </div>
+    </div>
+  </div>
+
+  <div *ngIf="title=='使领馆'">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <img margin-left style="width: 150px;height: 90px;" src="{{country?.flag}}">
+        </ion-col>
+        <ion-col col-6 class="chcadivname">
+          <b margin-left class="f18" margin-top>{{country?.country}}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-list>
+      <ion-item text-center ion-item *ngFor="let item of items">
+        <h4 text-center class="f16">{{ item?.consulate}}</h4>
+        <h4 text-left class="f14">总领事：{{ item?.name}}</h4>
+        <h4 text-left class="f14">地址：{{ item?.address}}</h4>
+        <h4 text-left class="f14">电话：{{ item?.telephone}}</h4>
+        <h4 text-left class="f14">传真：{{ item?.fax}}</h4>
+        <a text-left class="f14">网址： {{ item?.emWebSite}}</a>
+        <h4 text-left class="f14">电子邮箱： {{ item?.email}}</h4>
+        <h4 text-left class="f14">使领馆类别：{{ item?.cate}}</h4>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+  <div *ngIf="title=='法律法规'">
+    <div class="content_wradivdiver">
+      <a margin href="{{srcUrl}}" class="f16" text-center>查看原文（非官方提供仅供参考）</a>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>事件上报</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="uploadcolor text-indent" padding>
+    您所上报的事件将实时上报至北京市政府外办、市旅游委，请您务必提供真实有效的求助信息，以便及时处理问题。
+  </div>
+
+  <!--<ion-list  [(ngModel)]="params.tfType">-->
+    <!--<ion-item-divider>-->
+      <!--<div class="newmess"></div>-->
+      <!--<span class="mleft">事件性质</span>-->
+      <!--<span class="color-danger mleft">(*必选)</span>-->
+    <!--</ion-item-divider>-->
+    <!--<ion-item>-->
+      <!--<ion-label>受伤</ion-label>-->
+      <!--<ion-radio checked value="受伤"></ion-radio>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-label>死亡</ion-label>-->
+      <!--<ion-radio value="死亡"></ion-radio>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-label>财产损失</ion-label>-->
+      <!--<ion-radio value="财产损失"></ion-radio>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-label>其它</ion-label>-->
+      <!--<ion-radio value="其它"></ion-radio>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+  <ion-list>
+    <ion-item-divider>
+      <div class="newmess"></div>
+      <span class="mleft">事件性质</span>
+      <span class="color-danger mleft">(*必选)</span>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>受伤</ion-label>
+      <ion-checkbox [(ngModel)]="ishurt"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>死亡</ion-label>
+      <ion-checkbox [(ngModel)]="isdead"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>财产损失</ion-label>
+      <ion-checkbox [(ngModel)]="ismon"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>其它</ion-label>
+      <ion-checkbox [(ngModel)]="isother"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      <div class="newmess"></div>
+      <span class="mleft">详情描述</span>
+    </ion-item-divider>
+    <ion-item>
+      <ion-textarea placeholder="可选填" [(ngModel)]="params.tfNote"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider (click)="openAddFiles()">
+      <div class="newmess"></div>
+      <span class="mleft">图片、视频、音频</span>
+      <button ion-button outline small item-end icon-left clear class="addimg">
+        <!--<ion-icon name="ios-add"></ion-icon>-->
+        <!--添加-->
+        <img class="add" src="assets/img/upload/add.png">
+        <span class="pacolor mleft">添加</span>
+      </button>
+    </ion-item-divider>
+    <ion-item *ngIf="!files || files.length == 0">
+      未添加
+    </ion-item>
+    <ion-item-sliding *ngFor="let file of files, let i = index" detail-push>
+      <ion-item [navPush]="'FileViewPage'" [navParams]="{url: file.url}">
+        <ion-avatar *ngIf="file.type == 'image'" item-start>
+          <img src="{{file.url}}" />
+        </ion-avatar>
+        <ion-avatar *ngIf="file.type == 'video'" item-start>
+          <img src="assets/img/upload/play_video.jpg" />
+        </ion-avatar>
+        <ion-avatar *ngIf="file.type == 'audio'" item-start>
+          <img src="assets/img/upload/play_audio.jpg" />
+        </ion-avatar>
+        {{file.name||'未知'}}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removeFile(i)">
+          <ion-icon name="ios-remove-circle-outline"></ion-icon>
+          移除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      <div class="newmess"></div>
+      <span class="mleft">国家</span>
+    </ion-item-divider>
+    <ion-item>
+      <ion-input [(ngModel)]="params.country" placeholder="请输入国家名"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      <div class="newmess"></div>
+      <span class="mleft">地址</span>
+      <span class="color-danger">请尽量描述准确</span>
+    </ion-item-divider>
+    <ion-item>
+      <ion-textarea [(ngModel)]="params.addressDetails" placeholder="尽可能描述准确"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      <div class="newmess"></div>
+      <span class="mleft">当前位置</span>
+    </ion-item-divider>
+    <ion-item>
+      {{params.tfAddress || '定位失败'}}
+      <button ion-button outline small item-end icon-left clear (click)="refreshPosition()">
+        <!--<ion-icon name="star"></ion-icon>-->
+        <img class="posimg" src="assets/img/upload/pos.png">
+        <span class="pacolor mleft">重新定位</span>
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button ion-button block color="primary" tappable (click)="upload()">上报</button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>法律法规</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="laws">
+
+  <ion-searchbar class="mysearch" type="text" [(ngModel)]="params.countryName" [animated]="true" (focus)="onFocus()" (ionInput)="onInput($event)"
+    placeholder="输入国家名字">
+  </ion-searchbar>
+
+  <nav id="nav" *ngIf="items">
+    <ul>
+      <li *ngFor="let item of items, let i = index" (click)="clickLeft(i,item)">
+        <span [ngClass]="{true:'nav-current',false:'nav-blur'}[item.isSelect]" class="f14">{{item.lwTypeName}}</span>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="pro" *ngIf="dataList">
+    <div class="pro-scroll">
+      <div class="pro-warp">
+        <div class="content">
+          <div id="manlist" class="content-body">
+            <ion-grid>
+              <ion-row>
+                <ion-col class="border-bottom" col-12 *ngFor="let item of dataList, let i = index" (click)="goDegtail(item)">
+                  <p text-left class="f14 content-title">{{item.title}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+
+  <ion-list inset class="myList" *ngIf="title=='未读安全提醒'">
+    <ion-item *ngFor="let item of items, let i = index" tappable detail-push (click)="goDegtail(item)">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset class="myList" *ngIf="title=='未读快讯'">
+    <ion-item *ngFor="let item of items, let i = index" tappable detail-push (click)="goDegtail(item)">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset class="myList" *ngIf="title=='未读报告'">
+    <ion-item *ngFor="let item of items, let i = index" tappable detail-push (click)="goDegtail(item)">
+      {{item.title}}
+    </ion-item>
+  </ion-list>
+
+  <no-more [hasMore]="hasmore"></no-more>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">
+    <my-infinite-scroll-content></my-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

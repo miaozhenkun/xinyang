@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+    </ion-buttons>
+    <ion-title>消息</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+
+  <ion-list inset>
+    <ion-item class="border-bottom" tappable [navPush]="'UnMessageListPage'" [navParams]="{fromname: '未读安全提醒'}">
+      消息提醒
+      <ion-badge item-end color="danger">{{inNum}}</ion-badge>
+    </ion-item>
+    <!--<ion-item tappable [navPush]="'UnMessageListPage'" [navParams]="{fromname: '未读报告'}">-->
+      <!--未读报告-->
+      <!--<ion-badge item-end color="danger">{{reNum}}</ion-badge>-->
+    <!--</ion-item>-->
+    <!--<ion-item tappable [navPush]="'UnMessageListPage'" [navParams]="{fromname: '未读快讯'}">-->
+      <!--未读快讯-->
+      <!--<ion-badge item-end color="danger">{{icNum}}</ion-badge>-->
+    <!--</ion-item>-->
+  </ion-list>
+
+</ion-content>

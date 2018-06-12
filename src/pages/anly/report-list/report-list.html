@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的上报列表</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+
+  <ion-list inset>
+    <ion-item-sliding *ngFor="let item of items, let i = index">
+      <ion-item detail-push tappable [navPush]="'ReportDetailPage'" [navParams]="{id: item.id,authority:params.authority}">
+        <div>
+          <h2 ion-text>
+            <span *ngIf="item.country">【{{item.country}}】</span>{{item.tfType}}
+          </h2>
+          <p>
+            <span>{{item.createtime}}</span>
+          </p>
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delReport(item, i)">
+          <ion-icon name="ios-remove-circle-outline"></ion-icon>
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <no-more [hasMore]="hasmore"></no-more>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">
+    <my-infinite-scroll-content></my-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

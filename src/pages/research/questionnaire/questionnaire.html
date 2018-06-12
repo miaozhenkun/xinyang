@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>问卷调查</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>您了解“单独两孩”政策吗？</h3>
+  <ion-list radio-group [(ngModel)]="relationship">
+    <ion-item>
+      <ion-label>清楚</ion-label>
+      <ion-radio value="cord"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>不清楚</ion-label>
+      <ion-radio value="haha"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>知道一些</ion-label>
+      <ion-radio value="cord1"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <button class="mybutton" ion-button block tappable (click)="submit()">提 交</button>
+</ion-content>

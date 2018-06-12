@@ -1,0 +1,14 @@
+{
+  "name": "LBXM",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://cs.bjfao.gov.cn:9692/lbxm-app"
+    }
+  ]
+}

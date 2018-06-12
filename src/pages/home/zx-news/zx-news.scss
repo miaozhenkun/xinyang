@@ -1,0 +1,14 @@
+page-zx-news {
+    .myList {
+        margin: 0px;
+    }
+    .item-ios h2 {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-bottom: 8px;
+        overflow: hidden;
+        font-size: 16px;
+    }
+}

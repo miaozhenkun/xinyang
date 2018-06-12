@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>领保快讯</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+
+  <ion-list class="myList" inset>
+    <ion-item *ngFor="let item of items, let i = index" class="item" tappable (click)="goDegtail(item)">
+      <div>
+        <h2 ion-text color="dark">
+          {{item.title}}
+        </h2>
+        <p>
+          <span>{{item.source }}</span>
+          <span margin-left>{{item.createtime| date:'yyyy-MM-dd'}}</span>
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <no-more [hasMore]="hasmore"></no-more>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">
+    <my-infinite-scroll-content></my-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

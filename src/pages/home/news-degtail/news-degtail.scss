@@ -1,0 +1,90 @@
+page-news-degtail {
+    //中资机构
+    .chcapname {
+        position: relative;
+        top: 10px;
+    }
+    .content_wrapper {
+        padding: 0 17px 10px;
+    }
+    .landingHead {
+        padding: .13rem 0;
+    }
+     h1 {
+        color: #000;
+        line-height: 1.4;
+        font-weight: 400;
+        font-size: 20px;
+        margin-top: 1rem;
+    }
+    .landingHead section h3 {
+        box-orient: horizontal;
+        flex: 1;
+        display: flex;
+        box-align: center;
+        align-items: center;
+    }
+    .landingHead .avatarLink {
+        position: relative;
+        margin: 0 14px 0 0;
+    }
+    .landingHead .avatarLink img {
+        display: block;
+        height: 2.6rem;
+        width: 2.6rem;
+        background-size: cover;
+        border-radius: 50%;
+    }
+    .landingHead .extraInfo {
+        font-size: .16rem;
+    }
+    .landingHead .authorName {
+        height: 1.8rem;
+        color: #333;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.8rem;
+        user-select: none;
+        display: block;
+        padding: 0 0 .02rem;
+        text-decoration: none;
+    }
+     .infoSet {
+        height: 100%;
+        color: #999;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+     .infoSet .afrSplit {
+        position: relative;
+        padding-right: 8px;
+    }
+
+    p {
+        line-height: 1.6;
+        width: 100%;
+    }
+    .countryinfo {
+        line-height: 1.6;
+        font-size: 14px;
+    }
+    .homecorlor {
+        color: #01657E;
+    }
+    .item-ios h4 {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        margin-bottom: 8px;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: 500;
+    }
+  .highlight{
+    background-color: yellow;
+  }
+  .searchbar-ios .searchbar-input{
+    background-color: beige;
+  }
+}

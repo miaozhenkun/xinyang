@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>救援机构</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <img margin-left style="width: 180px;height: 100px;" src="{{item?.imgUrl}}">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center class="chcadivname">
+        <b margin-left class="f18" margin-top>{{item?.inName}}</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div padding [innerHTML]="item?.inChmode"></div>
+  <ion-list class="myList" inset>
+    <ion-item *ngFor="let item of items, let i = index" class="item" tappable (click)="goDegtail(item)">
+      <div>
+        <h2 ion-text color="dark">
+          {{item.title}}
+        </h2>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

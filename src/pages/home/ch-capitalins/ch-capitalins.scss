@@ -1,0 +1,31 @@
+page-ch-capitalins {
+    .searchbutton {
+        position: relative;
+        top: 10px;
+        color: blue;
+        font-size: 16px;
+    }
+    .borderbottom {
+        border-bottom-color: blue;
+        border-bottom: 1px solid blue;
+    }
+    .padding-none {
+        padding: 0px !important;
+    }
+    .list-ios[inset] {
+        margin: 0px;
+        border-radius: 4px;
+    }
+    ion-thumbnail img {
+        width: 100px !important;
+        height: 50px !important;
+    }
+    .item-ios h2 {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-bottom: 8px;
+        overflow: hidden;
+    }
+}

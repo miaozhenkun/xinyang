@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>个人信息</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="border-bottom">
+    <ion-row>
+      <ion-col col-4 text-center tappable (click)="initImgSer()">
+        <img class="avtor" *ngIf="userInfo?.avatar" src="{{userInfo?.avatar}}">
+        <img class="avtor" *ngIf="!userInfo?.avatar" src="assets/img/usercenter/avater.png">
+      </ion-col>
+      <ion-col>
+        <h2>{{userInfo?.realname}}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item tappable (click)="sexActionSheet()">
+    <h2>性别
+      <span style="margin-left: 116px">{{userInfo?.sex|defaultValue}}</span>
+    </h2>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>真实姓名</ion-label>
+    <ion-input [(ngModel)]="params.realname" float-right type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>身份证号</ion-label>
+    <ion-input [(ngModel)]="params.idnumber" float-right type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>护照号</ion-label>
+    <ion-input float-right type="text" [(ngModel)]="params.passportnum"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>手机号</ion-label>
+    <ion-input float-right type="text" [(ngModel)]="params.phonenum"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>常用境外手机号</ion-label>
+    <ion-input float-right type="text" [(ngModel)]="params.phoneNoOut"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>邮箱</ion-label>
+    <ion-input float-right type="text" [(ngModel)]="params.email"></ion-input>
+  </ion-item>
+
+  <button class="mybutton" ion-button block tappable (click)="save()">保 存</button>
+
+</ion-content>

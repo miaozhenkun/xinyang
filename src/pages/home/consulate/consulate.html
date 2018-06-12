@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>使领馆</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar class="mysearch" type="text" [(ngModel)]="params.searchTxt" [animated]="true" (focus)="onFocus()" (ionInput)="onInput($event)"
+    placeholder="输入国家名字">
+  </ion-searchbar>
+
+  <ion-grid class="padding-none" *ngIf="!isSearch">
+    <ion-row>
+      <ion-col text-center class=" padding-none" [ngClass]="{'borderbottom':cindex==1}" tappable (click)="sec(1)">
+        <p>亚洲</p>
+      </ion-col>
+      <ion-col text-center class="padding-none " [ngClass]="{'borderbottom':cindex==2}" tappable (click)="sec(2)">
+        <p>欧洲</p>
+      </ion-col>
+      <ion-col text-center class=" padding-none " [ngClass]="{'borderbottom':cindex==3}" tappable (click)="sec(3)">
+        <p>美洲</p>
+      </ion-col>
+      <ion-col text-center class=" padding-none " [ngClass]="{'borderbottom':cindex==4}" tappable (click)="sec(4)">
+        <p>大洋洲</p>
+      </ion-col>
+      <ion-col text-center class=" padding-none borderbottom" [ngClass]="{'borderbottom':cindex==5}" tappable (click)="sec(5)">
+        <p>非洲</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list inset>
+    <ion-item *ngFor="let item of items, let i = index" class="item" tappable (click)="goDegtail(item)">
+      <ion-thumbnail item-start>
+        <img src="{{item.flag}}">
+      </ion-thumbnail>
+      <h2>{{item.name}}</h2>
+    </ion-item>
+  </ion-list>
+
+  <no-more [hasMore]="hasmore"></no-more>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">
+    <my-infinite-scroll-content></my-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,26 @@
+page-report-degtail {
+   .pdfpag{
+     width: 98%;
+     height: min-content;
+   }
+  .mycolleft{
+    background-color: #1f83df;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-right: 1px;
+    height: 40px;
+    padding-top: 10px;
+  }
+  .mycolright{
+    background-color: #1f83df;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-left: 1px;
+    height: 40px;
+    padding-top: 10px;
+  }
+  table{
+    width: 100%;
+  }
+
+}

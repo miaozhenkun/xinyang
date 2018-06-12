@@ -1,0 +1,227 @@
+.w100{width: 100%;}
+
+.scroll {height: 100%;}
+::-webkit-scrollbar {display: none !important;}
+
+.border{border: 1px solid map-get($colors, 'light');}
+.border-left{border-left: 1px solid map-get($colors, 'light');}
+.border-right{border-right: 1px solid map-get($colors, 'light');}
+.border-top{border-top: 1px solid map-get($colors, 'light');}
+.border-bottom{border-bottom: 1px solid map-get($colors, 'light');}
+.border-color-main{border-color: map-get($colors, 'primary');}
+.border-color-white{border-color: white;}
+.border-weight{border-width: 5px;}
+.border-none{border: none;}
+.border-circle{border-radius: 50%;}
+.border-radius{border-radius: 5px;}
+
+.line-spe{width: 100%; height: 8px; background-color: #f5f5f5;}
+
+/*文字、段落*/
+.nowrap{white-space: nowrap;}
+.text-indent{text-indent: 2em;}
+.overflow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.paragraph{
+  text-indent: 2em;
+  line-height: 1.5em;
+}
+/*固定行文字*/
+p.text1 {
+  /*单行*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*多行*/
+p.text2 {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+/*自定义checkbox icon*/
+.checkbox-icon-my{color: #eee; display: inline-block;}
+.checkbox-icon-my.checked:before{
+  background: #387ef5;
+  border-color: #387ef5;
+}
+.checkbox-icon-my.checked:after{
+  -webkit-transition: opacity 0.05s ease-in-out;
+  -moz-transition: opacity 0.05s ease-in-out;
+  transition: opacity 0.05s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 26%;
+  display: table;
+  width: 15px;
+  height: 10.33333px;
+  border: 3px solid #fff;
+  border-top: 0;
+  border-right: 0;
+  content: ' ';
+  opacity: 0;
+}
+.f12{font-size:12px !important;}
+.f13{font-size:13px !important;}
+.f14{font-size:14px !important;}
+.f15{font-size:15px !important;}
+.f16{font-size:16px !important;}
+.f18{font-size:18px !important;}
+.f20{font-size:20px !important;}
+.f24{font-size:24px !important;}
+.f30{font-size:30px !important;}
+.f32{font-size:32px !important;}
+.f36{font-size:36px !important;}
+.f50{font-size:50px !important;}
+
+/*文字颜色*/
+.color-danger{color: map-get($colors, 'danger')}
+.color-primary{color: map-get($colors, 'primary')}
+.color-secondary{color: map-get($colors, 'secondary')}
+.color-light{color: map-get($colors, 'light')}
+.color-dark{color: map-get($colors, 'dark')}
+.color-warning{color: map-get($colors, 'warning')}
+.color-info{color: map-get($colors, 'info')}
+.color-success{color: map-get($colors, 'success')}
+.color-muted{color: map-get($colors, 'muted')}
+
+/*右下角三角*/
+.small-triangle{
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid #11c1f3;
+  position: absolute;
+  right: 3px;
+  bottom: 10px;
+}
+//顶部标题栏
+.toolbar-background{
+  width: 100%;
+  background: url(../assets/img/home/navpng.png)  no-repeat!important;
+  //background:#01657E  !important;
+}
+.toolbar-title-ios {
+  overflow: visible;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  pointer-events: auto;
+}
+//返回按钮颜色
+.backbutton {
+  color: #FFFFFF;
+}
+.back-button.show-back-button{
+  color: #FFFFFF;
+}
+.righticon{
+  color: #FFFFFF;
+}
+.fontweight{
+  font-weight:700;
+}
+
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+  border-bottom: 0px;
+}
+
+//搜索框
+.mysearch{
+  padding: 0px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 5%;
+  background: none;
+  width: 90%;
+}
+.list-ios[inset] .item {
+  border-bottom: 1px solid #dbdbdb;
+  padding-left: 2px;
+}
+
+
+.ion-tab-icon-base {
+  width: 20px;
+  height: 20px;
+  padding: 0px 1px 1px;
+}
+
+.ion-tab-icon-md-base {
+  width: 25px;
+  min-width: 25px !important;
+  height: 25px;
+}
+
+$tabImageName: 'tab1' 'tab2' 'tab3' 'tab4' 'tab5';
+@for $i from 1 to 6 {
+  //for ios
+  .ion-ios-tab-#{nth($tabImageName, $i)} {
+    @extend .ion-tab-icon-base;
+    min-width: 28px !important;
+    height: 28px !important;
+    content: url("../assets/img/home/#{nth($tabImageName, $i)}sec.png");
+  }
+  .ion-ios-tab-#{nth($tabImageName, $i)}-outline {
+    @extend .ion-tab-icon-base;
+    min-width: 28px !important;
+    height: 28px !important;
+    content: url("../assets/img/home/#{nth($tabImageName, $i)}.png");
+  }
+
+  // for android
+  .tabs-md .tab-button[aria-selected=true] {
+    .ion-md-tab-#{nth($tabImageName, $i)} {
+      @if $i == 1 {
+        width: 23px;
+        min-width: 23px !important;
+        height: 23px;
+      } @else if $i == 2{
+        width: 25px;
+        min-width: 25px !important;
+        height: 20px;
+        padding: 2px 1px 1px;
+      } @else {
+        @extend .ion-tab-icon-md-base;
+      }
+      content: url("../assets/img/home/#{nth($tabImageName, $i)}sec.png");
+    }
+  }
+  .tabs-md .tab-button[aria-selected=false] {
+    .ion-md-tab-#{nth($tabImageName, $i)} {
+      @if $i == 1 {
+        width: 24px;
+        min-width: 24px !important;
+        height: 24px;
+      } @else if $i == 2{
+        width: 25px;
+        min-width: 25px !important;
+        height: 18px;
+      } @else if $i == 3{
+        width: 22px;
+        min-width: 22px !important;
+        height: 25px;
+      } @else {
+        @extend .ion-tab-icon-md-base;
+      }
+      content: url("../assets/img/home/#{nth($tabImageName, $i)}.png");
+    }
+  }
+}
+

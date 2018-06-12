@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>快讯</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div #mapDiv id="mapDiv" class="tianditu"></div>
+
+  <div class="content_wrapper">
+
+      <h1>{{ item?.title}}</h1>
+        <p  class="infoSet">
+            <span class="afrSplit">{{item?.country}}</span>
+            <span>{{ item?.time}}</span>
+        </p>
+
+    <img *ngFor="let i of item?.imgUrl" padding src="{{i}}">
+    <p style="text-indent: 24px;">{{item?.tfInfo}}</p>
+
+  </div>
+</ion-content>

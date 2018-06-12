@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>上报详情</ion-title>
+    <ion-buttons end>
+      <button ion-button color="light" [navPush]="'ReportEventPage'" [navParams]="{id: id}">
+        编辑
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-divider>
+      上报时间
+    </ion-item-divider>
+    <ion-item>
+      {{item?.createtime}}
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="authority==2">
+    <ion-item-divider>
+      上报人详情
+    </ion-item-divider>
+    <ion-item>
+        真实姓名：{{userinfo?.realname}}
+    </ion-item>
+    <ion-item>
+      性别：{{userinfo?.sex}}
+    </ion-item>
+    <ion-item>
+      境内电话：{{userinfo?.phonenum}}
+    </ion-item>
+    <ion-item>
+      境外电话：{{userinfo?.phoneNoOut}}
+    </ion-item>
+    <ion-item>
+    邮箱：{{userinfo?.email}}
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item-divider>
+      事件性质
+    </ion-item-divider>
+    <ion-item>
+      {{item?.tfType}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      详情描述
+    </ion-item-divider>
+    <ion-item>
+      {{item?.tfNote}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      上传附件
+    </ion-item-divider>
+    <ion-item *ngFor="let file of files, let i = index" detail-push [navPush]="'FileViewPage'" [navParams]="{url: file.url}">
+      <ion-avatar *ngIf="file.type == 'image'" item-start>
+        <img src="{{file.url}}" />
+      </ion-avatar>
+      <ion-avatar *ngIf="file.type == 'video'" item-start>
+        <img src="assets/img/upload/play_video.jpg" />
+      </ion-avatar>
+      <ion-avatar *ngIf="file.type == 'audio'" item-start>
+        <img src="assets/img/upload/play_audio.jpg" />
+      </ion-avatar>
+      {{file.name||'未知'}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item-divider>
+      地址
+    </ion-item-divider>
+    <ion-item>
+      {{item?.pAddress}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

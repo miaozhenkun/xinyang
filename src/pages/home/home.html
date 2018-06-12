@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>健康信阳服务平台</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" pullingText="下拉刷新..." refreshingText="正在刷新数据...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-slides #ionSlides [loop]="true" [pager]="true" autoplay="2000" *ngIf="items&&items.length>0">
+    <ion-slide *ngFor="let item of items;trackBy:index" tappable (click)="goDegtail(item)">
+      <img src="{{item.savePath}}">
+      <span class="myspan">{{item.title}}</span>
+    </ion-slide>
+  </ion-slides>
+  <ion-grid class="nopadding">
+    <ion-row class="border-bottom border-top">
+      <ion-col col-3 text-center tappable [navPush]="'ZxNewsPage'"  [navParams]="{fromname: '工作动态'}" class="border-right">
+        <img class="menuimg" src="assets/img/xinyang/gongzuo.png">
+        <p>工作动态</p>
+      </ion-col>
+      <ion-col col-3 text-center tappable [navPush]="'ZxNewsPage'" [navParams]="{fromname: '行业动态'}" class="border-right">
+        <img class="menuimg" src="assets/img/xinyang/hangye.png">
+        <p>行业动态</p>
+      </ion-col>
+      <ion-col col-3 text-center tappable [navParams]="{fromname: '疾病预防'}" [navPush]="'ZxNewsPage'">
+        <img class="menuimg" src="assets/img/xinyang/jibing.png">
+        <p>疾病预防</p>
+      </ion-col>
+      <ion-col col-3 text-center tappable [navParams]="{fromname: '政策法规'}"  [navPush]="'ZxNewsPage'">
+        <img class="menuimg" src="assets/img/xinyang/zhengce.png">
+        <p>政策法规</p>
+      </ion-col>
+
+    </ion-row>
+    <ion-row class="border-bottom">
+      <ion-col col-3 text-center tappable [navParams]="{fromname: '健康教育'}" [navPush]="'ZxNewsPage'" class="border-right">
+        <img class="menuimg" src="assets/img/xinyang/jiaoyu.png">
+        <p>健康教育</p>
+      </ion-col>
+      <ion-col col-3 text-center tappable [navParams]="{fromname: '健康咨询'}" [navPush]="'ZxNewsPage'" class="border-right">
+        <img class="menuimg" src="assets/img/xinyang/zixun.png">
+        <p>健康咨询</p>
+      </ion-col>
+      <ion-col col-3 text-center tappable [navParams]="{fromname: '健康档案'}" [navPush]="'ZxNewsPage'" class="border-right">
+        <img class="menuimg" src="assets/img/xinyang/dangan.png">
+        <p>健康档案</p>
+      </ion-col>
+      <ion-col col-3 text-center tappable [navParams]="{fromname: '卫计委要闻'}" [navPush]="'ZxNewsPage'">
+        <img class="menuimg" src="assets/img/xinyang/news1.png">
+        <p>卫计委要闻</p>
+      </ion-col>
+      <!--<ion-col col-3 text-center tappable [navPush]="'ReliefAgenciesPage'">-->
+        <!--<img class="menuimg" src="assets/img/home/u40.png">-->
+        <!--<p>救援机构</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col col-3 text-center tappable (click)="goedu()">-->
+        <!--<img class="menuimg" src="assets/img/home/u18.png">-->
+        <!--<p>宣传教育</p>-->
+      <!--</ion-col>-->
+    </ion-row>
+  </ion-grid>
+  <div><div class="newmess"></div><b margin-left class=" f14">通知公告</b></div>
+
+  <ion-list inset>
+    <ion-item *ngFor="let i of chinaItems, let j = index" tappable (click)="goDegtail(i)">
+      <ion-thumbnail item-start *ngIf="i.url">
+        <img src="{{i.url}}">
+      </ion-thumbnail>
+      <h2>{{i.title}} </h2>
+      <p>{{i.date}}</p>
+    </ion-item>
+  </ion-list>
+  <!--<no-more [hasMore]="hasmore"></no-more>-->
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">-->
+    <!--<my-infinite-scroll-content></my-infinite-scroll-content>-->
+  <!--</ion-infinite-scroll>-->
+
+</ion-content>

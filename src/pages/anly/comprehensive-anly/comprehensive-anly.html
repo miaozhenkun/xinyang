@@ -1,0 +1,33 @@
+<!--
+  Generated template for the ComprehensiveAnlyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>综合业务分析</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="mycontent">
+    <div padding>
+      <ion-row>
+        <ion-col col-6 class="border">
+          <p>常住人口数：888</p>
+          <p>户籍人口数：6666</p>
+        </ion-col>
+        <ion-col col-6 class="border">
+          <p>常住人口数：888</p>
+          <p>户籍人口数：6666</p>
+        </ion-col>
+      </ion-row>
+    </div>
+    <echarts [config]="config" [cheight]="cheight" [ischange]="ischange"></echarts>
+    <echarts [config]="option" [cheight]="cheight"></echarts>
+  </div>
+</ion-content>

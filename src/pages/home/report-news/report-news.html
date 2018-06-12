@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>专家智库</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <my-refresher-content></my-refresher-content>
+  </ion-refresher>
+  <ion-grid class="padding-none">
+    <ion-row>
+      <ion-col  text-center class=" padding-none" [ngClass]="{'borderbottom':cindex==1}" tappable (click)="sec(1)">
+        <p>周报</p>
+      </ion-col>
+      <ion-col *ngIf="permisson==2" text-center class="padding-none " [ngClass]="{'borderbottom':cindex==2}" tappable (click)="sec(2)">
+        <p>月报</p>
+      </ion-col>
+      <ion-col *ngIf="permisson==2"  text-center class="padding-none " [ngClass]="{'borderbottom':cindex==3}" tappable (click)="sec(3)">
+        <p>国别分析报告</p>
+      </ion-col>
+      <ion-col text-center class="padding-none " [ngClass]="{'borderbottom':cindex==4}" tappable (click)="sec(4)">
+        <p>专家智库</p>
+      </ion-col>
+      <ion-col text-center class="padding-none " [ngClass]="{'borderbottom':cindex==5}" tappable (click)="sec(5)">
+        <p>法律法规</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<div *ngIf="params.type">
+  <ion-list class="myList" inset>
+    <ion-item *ngFor="let item of items, let i = index" class="item" tappable (click)="goDegtail(item)">
+      <div>
+        <h2 ion-text color="dark">
+          {{item.title}}
+        </h2>
+      </div>
+    </ion-item>
+  </ion-list>
+  <no-more [hasMore]="hasmore"></no-more>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasmore">
+    <my-infinite-scroll-content></my-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>
+  <div *ngIf="!params.type" id="laws">
+    <ion-searchbar class="mysearch" type="text" [(ngModel)]="paramslaw.countryName" [animated]="true" (focus)="onFocus()" (ionInput)="onInput($event)"
+                   placeholder="输入国家名字">
+    </ion-searchbar>
+
+    <nav id="nav" *ngIf="items">
+      <ul>
+        <li *ngFor="let item of items, let i = index" (click)="clickLeft(i,item)">
+          <span [ngClass]="{true:'nav-current',false:'nav-blur'}[item.isSelect]" class="f14">{{item.lwTypeName}}</span>
+        </li>
+      </ul>
+    </nav>
+    <div id="pro" *ngIf="dataList">
+      <div class="pro-scroll">
+        <div class="pro-warp">
+          <div class="content">
+            <div id="manlist" class="content-body">
+              <ion-grid>
+                <ion-row>
+                  <ion-col class="border-bottom" col-12 *ngFor="let item of dataList, let i = index" (click)="golawDegtail(item)">
+                    <p text-left class="f14 content-title">{{item.title}}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

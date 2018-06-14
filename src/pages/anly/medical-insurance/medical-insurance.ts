@@ -82,6 +82,44 @@ export class MedicalInsurancePage {
           }
         }
       ]
+    };    this.option1 = {
+      title: {
+        text: '医保门诊占比',
+        left: 'center'
+      },
+      tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+      },
+      legend: {
+        // orient: 'vertical',
+        // top: 'middle',
+        bottom: 10,
+        left: 'center',
+        data: ['医保门诊', '非医保门诊']
+      },
+      series : [
+        {
+          type: 'pie',
+          radius : '65%',
+          center: ['50%', '50%'],
+          selectedMode: 'single',
+          data:[
+            {
+              value:1548,
+              name: '医保门诊',
+            },
+            {value:535, name: '非医保门诊'},
+          ],
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
     };
 
   }

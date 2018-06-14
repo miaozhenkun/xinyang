@@ -50,21 +50,21 @@ export class MyApp {
         that.globalData.token = token;
       })
       this.globalData.serial=this.nativeService.getSerial();
-      this.userService.isLogin().then(isLogin => {
-        if (isLogin) {
-          this.userService.getLoginInfo().then(userInfo => {
-            this.userService.getNum({ IEMI:  this.globalData.serial + '',authority:userInfo.authority}).subscribe(data => {
-              let obj: any = data;
-              this.badge.setBadge(parseInt(obj.icNum)+parseInt(obj.inNum)+parseInt(obj.reNum));
-            })
-          });
-        }else {
-          this.userService.getNum({ IEMI:  this.globalData.serial + '',authority:0}).subscribe(data => {
-            let obj: any = data;
-            this.badge.setBadge(parseInt(obj.icNum)+parseInt(obj.inNum)+parseInt(obj.reNum));
-          })
-        }
-      });
+      // this.userService.isLogin().then(isLogin => {
+      //   if (isLogin) {
+      //     this.userService.getLoginInfo().then(userInfo => {
+      //       this.userService.getNum({ IEMI:  this.globalData.serial + '',authority:userInfo.authority}).subscribe(data => {
+      //         let obj: any = data;
+      //         this.badge.setBadge(parseInt(obj.icNum)+parseInt(obj.inNum)+parseInt(obj.reNum));
+      //       })
+      //     });
+      //   }else {
+      //     this.userService.getNum({ IEMI:  this.globalData.serial + '',authority:0}).subscribe(data => {
+      //       let obj: any = data;
+      //       this.badge.setBadge(parseInt(obj.icNum)+parseInt(obj.inNum)+parseInt(obj.reNum));
+      //     })
+      //   }
+      // });
 
 
       // 极光推送

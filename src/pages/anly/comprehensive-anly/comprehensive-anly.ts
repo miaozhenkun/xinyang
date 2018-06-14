@@ -78,8 +78,15 @@ export class ComprehensiveAnlyPage {
       },
       legend: {
         orient: 'vertical',
-        x: 'right',
+        x: 'bottom',
         data:['一孩','二孩','多孩']
+      },
+
+      toolbox: {
+        show : true,
+        feature : {
+          dataView : {show: true, readOnly: false},
+        }
       },
       series: [
         {
@@ -89,8 +96,8 @@ export class ComprehensiveAnlyPage {
           avoidLabelOverlap: false,
           label: {
             normal: {
-              show: false,
-              position: 'center'
+              show: true,
+              position: 'outside'
             },
             emphasis: {
               show: true,
@@ -105,6 +112,13 @@ export class ComprehensiveAnlyPage {
               show: true
             }
           },
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
           data:[
             {value:335, name:'一孩'},
             {value:310, name:'二孩'},
@@ -113,7 +127,6 @@ export class ComprehensiveAnlyPage {
         }
       ]
     };
-
   }
 
   ionViewDidLoad() {

@@ -63,6 +63,7 @@ export class HomePage {
     this.doRefresh(null);
     this.refreshUserInfo();
     this.checkUpdate();
+    this.test();
   }
 
   //页面离开时停止自动播放
@@ -206,5 +207,45 @@ export class HomePage {
     })
 
   }
+
+  test(){
+
+    // async function getTitle(url) {
+    //   let response = await fetch(url);
+    //   let html = await response.text();
+    //   return html.match(/<title>([\s\S]+)<\/title>/i)[1];
+    // }
+    // getTitle('https://www.baidu.com/').then(function (data) {
+    //     console.log(data);
+    //   }
+    // )
+
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(resolve, ms, 'done');
+    //   });
+    //
+    // // setTimeout(function (data) {
+    // //   console.log(data);
+    // // },1000);
+
+    // const asyncReadFile = async function () {
+    //   async function timeout(ms) {
+    //     await new Promise((resolve) => {
+    //       setTimeout(resolve, ms);
+    //     });
+    //   }
+    //
+    //   async function asyncPrint(value, ms) {
+    //     await timeout(ms);
+    //     console.log(value);
+    //   }
+    //
+    //   asyncPrint('hello world', 50);
+    // };
+
+    }
+
+
+
 
 }

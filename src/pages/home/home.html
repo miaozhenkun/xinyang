@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content refreshingSpinner="circles" pullingText="下拉刷新..." refreshingText="正在刷新数据...">
-    </ion-refresher-content>
-  </ion-refresher>
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+    <!--<ion-refresher-content refreshingSpinner="circles" pullingText="下拉刷新..." refreshingText="正在刷新数据...">-->
+    <!--</ion-refresher-content>-->
+  <!--</ion-refresher>-->
   <ion-slides #ionSlides [loop]="true" [pager]="true" autoplay="2000" *ngIf="items&&items.length>0">
     <ion-slide *ngFor="let item of items;trackBy:index" tappable (click)="goDegtail(item)">
       <img src="{{item.savePath}}">
@@ -30,7 +30,7 @@
         <p>疾病预防</p>
       </ion-col>
       <ion-col col-3 text-center tappable [navParams]="{fromname: '政策法规'}"  [navPush]="'ZxNewsPage'">
-        <img class="menuimg" src="assets/img/xinyang/zhengce.png">
+        <img class="menuimg" src="assets/img/xinyang/fagui.png">
         <p>政策法规</p>
       </ion-col>
 
@@ -62,7 +62,7 @@
       <!--</ion-col>-->
     </ion-row>
   </ion-grid>
-  <div><div class="newmess"></div><b margin-left class=" f14">通知公告</b></div>
+  <div><div class="newmess"></div><b margin-left class=" f14">工作动态</b></div>
 
   <ion-list inset>
     <ion-item *ngFor="let i of chinaItems, let j = index" tappable (click)="goDegtail(i)">

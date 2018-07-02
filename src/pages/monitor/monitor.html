@@ -14,63 +14,27 @@
 
 
 <ion-content>
-  <ion-list>
-    <ion-item-group>
-      <ion-item-divider color="light">第一批（9月15日）</ion-item-divider>
-      <ion-item *ngFor="let item of items, let i = index">
-        <h2>单位：{{item.name}}</h2>
-        <h4>专网进展情况：
-          <span *ngIf="item.jinzhan.indexOf('已连通')!=-1" style="color: green">{{item.jinzhan}}</span>
-          <span *ngIf="item.jinzhan.indexOf('已连通')==-1" style="color: red">{{item.jinzhan}}</span>
-        </h4>
-        <h4>前置机准备/一体机准备情况：{{item.ready}}</h4>
-        <h4>数据分析/数据接口改造情况：{{item.anly}}</h4>
-        <h4>数据上传情况：{{item.upload}}</h4>
-        <h4>备注：{{item.beizhu}}</h4>
-        <h4>目前数据上数据量：{{item.num}}</h4>
-        <h4>目前上传情况：
-          <span *ngIf="item.state.indexOf('正常')!=-1" style="color: green">{{item.state}}</span>
-          <span *ngIf="item.state.indexOf('正常')==-1" style="color: yellow">{{item.state}}</span>
-        </h4>
-      </ion-item>
-      <ion-item-divider color="light">第二批（10月底，除二院外，其他医院均已超期）</ion-item-divider>
-      <ion-item *ngFor="let item of items1, let i = index">
-        <h2>单位：{{item.name}}</h2>
-        <h4>专网进展情况：
-          <span *ngIf="item.jinzhan.indexOf('已连通')!=-1" style="color: green">{{item.jinzhan}}</span>
-          <span *ngIf="item.jinzhan.indexOf('已连通')==-1" style="color: red">{{item.jinzhan}}</span>
-        </h4>
-        <h4>前置机准备/一体机准备情况：{{item.ready}}</h4>
-        <h4>数据分析/数据接口改造情况：{{item.anly}}</h4>
-        <h4>数据上传情况：{{item.upload}}</h4>
-        <h4>备注：{{item.beizhu}}</h4>
-        <h4>目前数据上数据量：{{item.num}}</h4>
-        <h4>目前上传情况：
-          <span *ngIf="item.state.indexOf('正常')!=-1" style="color: green">{{item.state}}</span>
-          <span *ngIf="item.state.indexOf('正常')==-1" style="color: yellow">{{item.state}}</span>
-        </h4>
-      </ion-item>
-      <ion-item-divider color="light">第三批（12月底前）</ion-item-divider>
-      <ion-item *ngFor="let item of items2, let i = index">
-        <h2>单位：{{item.name}}</h2>
-        <h4>专网进展情况：
-          <span *ngIf="item.jinzhan.indexOf('已连通')!=-1" style="color: green">{{item.jinzhan}}</span>
-          <span *ngIf="item.jinzhan.indexOf('已连通')==-1" style="color: red">{{item.jinzhan}}</span>
-        </h4>
-        <h4>前置机准备/一体机准备情况：{{item.ready}}</h4>
-        <h4>数据分析/数据接口改造情况：{{item.anly}}</h4>
-        <h4>数据上传情况：{{item.upload}}</h4>
-        <h4>备注：{{item.beizhu}}</h4>
-        <h4>目前数据上数据量：{{item.num}}</h4>
-        <h4>目前上传情况：
-          <span *ngIf="item.state.indexOf('正常')!=-1" style="color: green">{{item.state}}</span>
-          <span *ngIf="item.state.indexOf('正常')==-1" style="color: yellow">{{item.state}}</span>
-        </h4>
-      </ion-item>
+  <img style="width: 100%;min-height: 160px" src="assets/img/xinyang/jiankong.png">
+  <ion-row class="border">
+    <ion-col col-6 text-center class="border-right" tappable [navPush]="'DataAccessPage'">
+      <img class="menuimg" src="assets/img/upload/anly3.png">
+      <p>平台接入数据</p>
+    </ion-col>
+    <ion-col col-6 text-center tappable [navPush]="'AccessOrgStatePage'">
+      <img class="menuimg" src="assets/img/upload/anly2.png">
+      <p>接入机构状态监控</p>
+    </ion-col>
+  </ion-row>
 
-    </ion-item-group>
-  </ion-list>
-  <echarts [config]="option1" [cheight]="400"></echarts>
-  <echarts [config]="configone" [cheight]="400"></echarts>
-  <!--<echarts [config]="config" [cheight]="400" [ischange]="ischange"></echarts>-->
+  <ion-row class="border" >
+    <ion-col col-6 text-center class="border-right" tappable [navPush]="'MedicalServiceAnlyPage'">
+      <img class="menuimg" src="assets/img/upload/anly4.png">
+      <p>各单位接入数据量查询</p>
+    </ion-col>
+    <ion-col col-6 text-center tappable [navPush]="'PublicHealthAnlyPage'" >
+      <img class="menuimg" src="assets/img/upload/anly1.png">
+      <p>数据接入连续性</p>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

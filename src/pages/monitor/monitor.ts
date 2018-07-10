@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import * as echarts from 'echarts';
+import {NativeService} from "../../providers/NativeService";
 
 /**
  * Generated class for the MonitorPage page.
@@ -22,7 +23,11 @@ export class MonitorPage {
   ischange;
   configone;
   option1;
-
+  constructor(public navCtrl: NavController, public navParams: NavParams,private nativeService:NativeService) {
+  }
+  go(){
+    this.nativeService.showToast('开发中。。。');
+  }
 
 }
 

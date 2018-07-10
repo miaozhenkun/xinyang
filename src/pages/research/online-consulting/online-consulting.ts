@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {NativeService} from "../../../providers/NativeService";
 
 /**
  * Generated class for the OnlineConsultingPage page.
@@ -15,11 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OnlineConsultingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,private nativeService:NativeService,public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OnlineConsultingPage');
   }
 
+  submit(){
+    this.nativeService.showToast('提交成功');
+    this.navCtrl.pop();
+  }
 }

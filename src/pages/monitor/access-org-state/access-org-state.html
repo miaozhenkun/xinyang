@@ -14,5 +14,18 @@
 
 
 <ion-content>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">信阳市区</ion-item-divider>
+      <ion-item *ngFor="let item of items, let i = index">
+        <h2>机构名称：{{item.name}}</h2>
+        <p>前置机编号：<span style="color: blue">{{item.num}}</span></p>
+        <p>联通状态：
+          <span style="color: green">已联通</span>
+        </p>
+        <p style="color: green">开关状态：开  <span margin-left style="color: green">启停状态：已启动</span></p>
 
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 </ion-content>

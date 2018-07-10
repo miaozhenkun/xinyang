@@ -8,21 +8,16 @@
 
 
 <ion-content>
-  <ion-fab bottom right>
-    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
 
-  <ion-list>
-    <ion-item class="border-bottom">
-      政策咨询
-      <ion-badge item-end color="danger">1</ion-badge>
-    </ion-item>
-    <ion-item class="border-bottom" >
-      问题咨询
-    </ion-item>
-    <ion-item class="border-bottom" >
-      普通咨询
-    </ion-item>
-  </ion-list>
+ <div margin>
+   <ion-input class="border" style="padding-left: 8px" placeholder="输入标题"></ion-input>
+   <ion-textarea margin-bottom placeholder="输入详细内容"  class="mytextarea border">
+
+   </ion-textarea>
+
+   <button margin-top  class="mybutton" ion-button block tappable (click)="submit()">提 交</button>
+
+ </div>
+
 
 </ion-content>

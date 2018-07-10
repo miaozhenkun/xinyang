@@ -24,5 +24,8 @@
     </ion-item>
   </ion-list>
 
-  <button class="mybutton" ion-button block tappable (click)="submit()">提 交</button>
+  <button *ngIf="isOne" class="mybutton" ion-button block tappable (click)="submit()">提 交</button>
+
+  <echarts *ngIf="!isOne" [config]="option" [cheight]="400"></echarts>
+
 </ion-content>

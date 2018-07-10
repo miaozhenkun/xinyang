@@ -7,13 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>平台监控数据</ion-title>
+    <ion-title>各业务接入数据量</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div id="countdown4" class="ClassyCountdownDemo"></div>
+  <ion-list>
+    <ion-item-group>
+      <!--<ion-item-divider color="light">信阳市区</ion-item-divider>-->
+      <ion-item *ngFor="let item of items, let i = index">
+        <h2>业务名称：{{item.name}}</h2>
+        <p>数据量：<span style="color: blue">{{item.num}}</span></p>
+
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 
 </ion-content>
